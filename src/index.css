@@ -1,0 +1,9 @@
+body {
+  padding-top: 60px; /* Ajuste para que el contenido no quede debajo del navbar */
+}
+
+.card-img {
+  width: 20%;
+  height: 200px;
+  object-fit: cover; /* Esto asegura que la imagen cubra el área sin distorsionarse */
+}
