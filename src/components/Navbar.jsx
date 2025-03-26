@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { useCart } from "./CartContext"; // Importa el contexto
+import { useCart } from "../context/CartContext"; // Importa el contexto
 
 const categorias = ["electronica", "hogar", "ropa"];
 

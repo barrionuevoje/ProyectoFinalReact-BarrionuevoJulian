@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Container, Spinner, Alert } from "react-bootstrap";
-import ItemList from "./ItemList";
-import { getItems } from "../firebase";
+import ItemList from "../components/ItemList";
+import { getItems } from "../services/firebaseDB";
 
 const ItemListContainer = ({ mensaje }) => {
   const { categoryId } = useParams();
@@ -12,14 +12,8 @@ const ItemListContainer = ({ mensaje }) => {
 
   useEffect(() => {
     setLoading(true);
-    getItems()
-      .then((productos) => {
-        const filtrados = categoryId
-          ? productos.filter((prod) => prod.categoria === categoryId)
-          : productos;
-
-        setProductosFiltrados(filtrados);
-      })
+    getItems(categoryId) // Ahora filtramos directamente en Firebase
+      .then(setProductosFiltrados)
       .catch((error) => console.error("Error al obtener productos:", error))
       .finally(() => setLoading(false));
   }, [categoryId]);

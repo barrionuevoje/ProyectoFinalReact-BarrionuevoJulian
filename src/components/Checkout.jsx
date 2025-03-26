@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Form, ListGroup, Alert, Spinner } from "react-bootstrap";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "./CartContext"; // Importamos el contexto
+import { useCart } from "../context/CartContext"; // Importamos el contexto
 
 const Checkout = () => {
   const { cartItems, clearCart } = useCart(); // Obtenemos cartItems y clearCart desde el contexto

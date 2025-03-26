@@ -1,5 +1,6 @@
 import { Button, ListGroup, Alert } from "react-bootstrap";
-import { useCart } from "./CartContext";
+import { Link } from "react-router-dom";  
+import { useCart } from "../context/CartContext";
 
 const Cart = () => {
   const { cartItems, removeFromCart, totalPrice, clearCart } = useCart();
@@ -23,6 +24,12 @@ const Cart = () => {
           <Button variant="warning" onClick={clearCart} className="mt-2">
             Vaciar Carrito
           </Button>
+          <br />
+          <Link to="/checkout">
+            <Button variant="success" className="mt-2">
+              Ir al Checkout
+            </Button>
+          </Link>
         </>
       ) : (
         <Alert variant="info">No hay productos en el carrito.</Alert>
